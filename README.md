@@ -58,7 +58,7 @@ Sigue estos pasos para configurar el proyecto:
 2. Entra en la carpeta del proyecto:
 
 ```bash
-cd Proyecto7
+cd Proyecto07
 ```
 
 3. Instalar dependencias en ambos proyectos, tanto en la carpeta "back-end" como en "front-end":
