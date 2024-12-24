@@ -1,0 +1,103 @@
+/* Estilo principal del contenedor */
+.container-login {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.container-login h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    width: 100%;
+}
+
+/* Campo de formulario */
+.mb-3 {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Etiqueta del formulario */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Estilo de entrada */
+.form-email, .form-password {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-email:focus, .form-password:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de envío */
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Mensaje de error */
+.container-login p {
+    color: red;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Enlace de registro */
+.container-login a {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container-login a:hover {
+    color: #0056b3;
+}
+
+/* Diseño responsive */
+@media (max-width: 576px) {
+    .container-login {
+        padding: 15px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+}

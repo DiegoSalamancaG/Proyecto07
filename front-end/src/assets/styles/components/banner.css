@@ -1,0 +1,58 @@
+/* Contenedor del Banner */
+.banner-container {
+    width: 100%;
+    height: 250px; /* Altura ajustable */
+    position: relative;
+    background: url('/path-to-your-background-image.jpg') no-repeat center center/cover;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Superposición (Overlay) */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(25, 118, 210, 0.8), rgba(41, 182, 246, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* Contenido del Banner */
+.banner-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.banner-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Botón del Banner */
+.banner-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #ff6f61;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.banner-button:hover {
+    background-color: #ff9068;
+    color: #fff;
+}

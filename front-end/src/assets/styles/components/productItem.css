@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,300;1,500&display=swap');
+
+body {
+  background-color: #43345d;
+}
+
+.card-container {
+  font-family: 'Poppins', sans-serif;
+  position : relative;
+  width : 100%;
+  display : flex;
+  flex-direction : row;
+  align-items : center;
+  justify-content : center;
+  flex-wrap: wrap;
+  padding : 30px;
+  border-radius : 15px;
+  height : auto; 
+  padding-top: 5rem;
+}
+
+.card-container .card-item {
+  position: relative;
+  max-width : 300px;
+  height : 215px;  
+  background-color : #fff;
+  margin : 30px 10px;
+  padding : 20px 15px;
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+}
+p {
+  margin-top: 10px;
+}
+.card-container .card-item:hover {
+  height : 360px;    
+}
+
+.card-container .card-item .card-image {
+  position : relative;
+  width : 260px;
+  height : 260px;
+  
+  top : -40%;
+  left: 8px;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+  z-index : 1;
+}
+
+.card-container .card-item .card-image img {
+  max-width : 100%;
+  max-height : 100%;
+  border-radius : 15px;
+  display : block;
+  margin : auto;
+}
+.card-container .card-item .card-image  h3 {
+  overflow: hidden; /* Oculta el texto extra */
+  text-overflow: ellipsis; /* Opcional: agrega "..." */
+  display: -webkit-box; /* Crea un contenedor flexible */
+  -webkit-line-clamp: 1; /* Número de líneas visibles */
+  -webkit-box-orient: vertical; /* Dirección del texto */
+}
+
+.card-container .card-item .card-body {
+  position : relative;
+  top : -140px;
+  padding : 10px 15px;
+  color : #111;
+  text-align : center;
+  
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+    
+}
+
+.card-container .card-item:hover .card-body {
+   margin-top : 30px;
+   visibility : visible;
+   opacity : 1;
+   transition-delay: 0.2s;
+  
+}
+
+.card-container .card-item:hover .card-body p {
+  overflow: hidden; /* Oculta el texto extra */
+  text-overflow: ellipsis; /* Opcional: agrega "..." */
+  display: -webkit-box; /* Crea un contenedor flexible */
+  -webkit-line-clamp: 4; /* Número de líneas visibles */
+  -webkit-box-orient: vertical; /* Dirección del texto */
+}

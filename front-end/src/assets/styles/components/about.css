@@ -1,0 +1,82 @@
+/* Contenedor general */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Título principal */
+h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Párrafos */
+p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Secciones */
+.location-section,
+.values-section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+    text-align: left;
+}
+
+/* Botón de llamada a la acción */
+.cta-section {
+    margin-top: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e65a50;
+}
