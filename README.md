@@ -76,7 +76,7 @@ PORT=
 SECRET_KEY=
 MP_ACCESS_TOKEN=
 ```
-Para el back end, debes confirgurar una conexion a mongoDB, proveer un puerto, ademas una clave secreta. Ademas, tus credenciales de prueba provenientes de MercadoPago Dev
+Para el back end, debes confirgurar una conexion a mongoDB, proveer un puerto, ademas una clave secreta. Ademas, token de acceso el cual viene de tus credenciales de prueba de MercadoPago Dev
 
 ```bash front-end
 VITE_MERCADOPAGO_PUBLIC_KEY=
@@ -84,12 +84,12 @@ VITE_MERCADOPAGO_PUBLIC_KEY=
 Para el front end, debes proveer la llave publica, proveniente de tus credenciales de prueba de MercadoPago Dev
 
 
-5. Inicia el servidor:
+5.1. Inicia el servidor:
 
 ```bash
 npm run dev
 ```
-5. Inicia la aplicacion:
+5.2. Inicia la aplicacion:
 
 ```bash
 npm run dev
