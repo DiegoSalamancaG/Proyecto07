@@ -1,7 +1,12 @@
 import { Router } from 'express';
 
 import { authMiddleware } from '../middlewares/authMiddleware.js';
-import { deleteUser, getAllUsers, getUserById, restoreUser, updateUser, updateUserImage } from '../controllers/userController.js';
+import { deleteUser, 
+        getAllUsers, 
+        getUserById, 
+        restoreUser, 
+        updateUser, 
+        updateUserImage } from '../controllers/userController.js';
 import { uploadPhotoMiddleware } from '../middlewares/uploadFileMiddlewares.js';
 
 const router = Router();

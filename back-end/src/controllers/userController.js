@@ -21,7 +21,7 @@ export const getUserById = async(req, res, next) => {
     try {
         const { id } = req.params;
 
-        const user = await User.findOne({ _id: id, activo: true }).select('-password -activo');
+        const user = await User.findOne({ _id: id, active: true }).select('-password -activo');
         if(!user) throw new NotFoundError('El usuario no existe');
 
         res.status(200).json({
@@ -80,7 +80,7 @@ export const updateUserImage = async (req, res, next) => {
 export const deleteUser = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const user = await User.findOneAndUpdate({ _id: id, activo: true }, { activo: false }, { new: true }).select('-password -activo');
+        const user = await User.findOneAndUpdate({ _id: id, activo: true }, { active: false }, { new: true }).select('-password -activo');
 
         if(!user) throw new NotFoundError(`Usuario no encontrado`);
 

@@ -25,7 +25,10 @@ export const createProduct = async(req, res, next) => {
 
 export const getAllProduct = async(req, res, next) => {
     try {
-        const product = await Product.find().select('-__v');
+        const product = await Product.find()
+        .select('-__v')
+        .populate('category', 'name')
+        .populate('collection', 'name')
         res.status(200).json({
             message: 'Productos obtenidos con éxito',
             status: 200,
@@ -54,8 +57,8 @@ export const getProductById = async(req, res, next) => {
 
 export const getProductByName = async(req, res, next) => {
     try {
-        const { nombre } = req.params;
-        const product = await Product.findById(nombre).select('-__v')
+        const { name } = req.params;
+        const product = await Product.findById(name).select('-__v')
 
         res.status(200).json({
             message: 'Productos obtenidos con éxito',
@@ -67,6 +70,35 @@ export const getProductByName = async(req, res, next) => {
     }
 }
 
+export const getProductByCategory = async(req, res, next) => {
+    try {
+        const { category } = req.params;
+        const product = await Product.findById(category).select('-__v')
+
+        res.status(200).json({
+            message: 'Productos obtenidos con éxito',
+            status: 200,
+            data: product
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const getProductByCollection = async(req, res, next) => {
+    try {
+        const { collection } = req.params;
+        const product = await Product.findById(collection).select('-__v')
+
+        res.status(200).json({
+            message: 'Productos obtenidos con éxito',
+            status: 200,
+            data: product
+        })
+    } catch (error) {
+        next(error)
+    }
+}
 
 export const updateProduct = async(req, res, next) => {
     try {
@@ -125,4 +157,3 @@ export const deleteProduct = async(req, res, next) => {
         next(error);
     }
 };
-
