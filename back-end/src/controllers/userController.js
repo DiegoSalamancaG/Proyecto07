@@ -1,7 +1,49 @@
 import { NotFoundError, ValidationError } from "../errors/TypeErrors.js";
 import { User } from "../models/user.js"
 import { updateUserImageService, updateUserService } from "../services/user/updateUser.js";
+import bcrypt from "bcrypt";
 
+
+export const createUser = async(req, res, next)=>{
+    try {
+        const {name, email, password, role} = req.params;
+
+        //valida datos
+        if(!name || !email || !password || !role){
+            throw new Error("Todos los campos deben ser obligatorios")
+        }
+
+        //validar email repetido
+        const existEmail = await User.findOne({email});
+        if(existEmail){
+            throw new Error("El correo electrónico ya está registrado");            
+        }
+
+        //hash contraseña
+        const hashedPassword = await bcrypt.hash(password,10);
+
+        //crear usuario
+        const newUser = new User({
+            name,
+            email,
+            password:hashedPassword,
+            role: role||"user",
+        })
+
+        //guardar nuevo usuario
+        await newUser.save();
+
+        // Retornar el usuario creado sin la contraseña
+        res.status(201).json({
+            message:"Usuario creado exitosamente",
+            status:201,
+            data:newUser,
+        })
+
+    } catch (error) {
+        next(error)
+    }
+}
 
 export const getAllUsers = async(req, res, next) => {
     try {

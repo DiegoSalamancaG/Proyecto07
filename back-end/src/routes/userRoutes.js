@@ -1,7 +1,8 @@
 import { Router } from 'express';
 
 import { authMiddleware } from '../middlewares/authMiddleware.js';
-import { deleteUser, 
+import { createUser, 
+        deleteUser, 
         getAllUsers, 
         getUserById, 
         restoreUser, 
@@ -11,6 +12,7 @@ import { uploadPhotoMiddleware } from '../middlewares/uploadFileMiddlewares.js';
 
 const router = Router();
 
+router.post('/',createUser)
 router.get('/', authMiddleware, getAllUsers);
 router.get('/:id', authMiddleware, getUserById);
 router.put('/:id', authMiddleware, updateUser);
