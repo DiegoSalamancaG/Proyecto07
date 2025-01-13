@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const categorySchema = new Schema({
+const categoryProductSchema = new Schema({
     name: {
         type: String,
         required: [true, "El nombre de la categoría es obligatorio"],
@@ -18,4 +18,4 @@ const categorySchema = new Schema({
     },
 }, { timestamps: true });
 
-export const Category = model("Category", categorySchema);
+export const CategoryProduct = model("CategoryProduct", categoryProductSchema);

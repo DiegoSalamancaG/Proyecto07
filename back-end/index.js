@@ -1,10 +1,8 @@
 import express from "express";
 import cors from 'cors'
 import dotenv from "dotenv";
-
 import { serverInit } from './src/services/serverInit.js';
 import routes from './src/routes/index.js'
-// import mercadopagoRouter from './routes/mercadopago.routes.js'
 import MPRouter from "./src/routes/MPRoutes.js"
 
 dotenv.config()

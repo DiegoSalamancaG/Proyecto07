@@ -37,14 +37,14 @@ const productSchema = new Schema({
         },
     },
     //categoria hará referencia a si son poleras, polerones, etc
-    category: {
+    categoryProduct: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Category",
+        ref: "CategoryProduct",
         required: [true, "La categoria es  obligatoria"]
     },
-    collection:{
+    CollectionProduct:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Collection",
+        ref: "CollectionProduct",
         required: false,
     },
     size: {

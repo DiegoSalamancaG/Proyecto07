@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const collectionSchema = new Schema({
+const CollectionProductSchema = new Schema({
     name:{
         type: String,
         required: [true, "El nombre de la colección es obligatorio"],
@@ -18,4 +18,4 @@ const collectionSchema = new Schema({
     },
 }, { timestamps: true });
 
-export const Collection = model("Collection", collectionSchema);
+export const CollectionProduct = model("CollectionProduct", CollectionProductSchema);
