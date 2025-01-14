@@ -10,8 +10,8 @@ const router = Router()
 router.post('/', authMiddleware, verifyAdmin, uploadPhotoMiddleware('productos', 'file') , createProduct);
 router.get('/', getAllProduct);
 router.get('/:id', getProductById);
-router.put('/:id', authMiddleware,verifyAdmin, updateProduct);
-router.put("/:id/image", authMiddleware,verifyAdmin, uploadPhotoMiddleware("productos", "file"), updateProductImage);
+router.put('/:id', authMiddleware, verifyAdmin, updateProduct);
+router.put("/:id/image", authMiddleware, verifyAdmin, uploadPhotoMiddleware("productos", "file"), updateProductImage);
 router.delete('/:id',verifyAdmin, deleteProduct);
 
 export default router;

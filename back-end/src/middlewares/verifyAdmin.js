@@ -6,7 +6,6 @@ export const verifyAdmin = (req, res, next) => {
               .status(403)
               .json({ error: "Acceso denegado: requiere permisos de administrador" });
       }
-
       // Si el usuario es administrador, continúa con la solicitud
       next();
   } catch (error) {

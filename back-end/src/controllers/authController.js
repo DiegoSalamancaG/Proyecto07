@@ -13,8 +13,8 @@ export const register = async(req, res, next) => {
             status: 201,
             user: {
                 id: user._id,
-                name: user.nombre,
-                email: user.correo
+                name: user.name,
+                email: user.email
             },
         });
     } catch (error) {
@@ -25,16 +25,17 @@ export const register = async(req, res, next) => {
 
 export const login = async(req, res, next) => {
     try {
-        const { correo, password } = req.body;
-        const { user, token } = await loginService(correo, password);
+        const { email, password } = req.body;
+        const { user, token } = await loginService(email, password);
 
         res.status(202).json({
             message: "Usuario Logueado con éxito",
             status: 202,
             user: {
                 id: user._id,
-                name: user.nombre,
-                email: user.correo
+                name: user.name,
+                email: user.email,
+                role: user.role
             },
             token
         })

@@ -1,19 +1,49 @@
 import { AuthError } from "../../errors/TypeErrors.js";
 import { User } from "../../models/user.js";
-import { hashPassword } from "../../utils/auth/hashPassword.js"
+import { hashPassword } from "../../utils/auth/hashPassword.js";
 
-export const registerUser = async({nombre, correo, password}) => {
+export const registerUser = async(req, res, next) => {
     try {
+        const { name, email, password, role } = req.body;
+
+        // Validar datos
+        if (!name || !email || !password) {
+            return res.status(400).json({ 
+                message: "Todos los campos son obligatorios", 
+                status: 400 
+            });
+        }
+
+        // Validar email repetido
+        const existEmail = await User.findOne({ email });
+        if (existEmail) {
+            return res.status(409).json({ 
+                message: "El correo electrónico ya está registrado", 
+                status: 409 
+            });
+        }
+
+        // Hash de la contraseña
         const hashedPassword = await hashPassword(password);
 
-        const user = await User.create({
-            nombre,
-            correo,
-            password: hashedPassword
+        // Crear usuario
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword,
+            role: role || "user",
         });
 
-        return user
+        // Guardar nuevo usuario
+        await newUser.save();
+
+        // Retornar el usuario creado sin la contraseña
+        res.status(201).json({
+            message: "Usuario creado exitosamente",
+            status: 201,
+            data: { id: newUser._id, name: newUser.name, email: newUser.email, role: newUser.role },
+        });
     } catch (error) {
-        throw new AuthError('No pudimos registrar los datos del Usuario', error)
+        throw new AuthError("Error al crear nuevo usuario", error);
     }
-} 
+};

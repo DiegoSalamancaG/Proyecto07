@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const { Schema, model } = mongoose;
+const { Schema, model, models } = mongoose;
 
 const userSchema = new Schema(
   {
@@ -83,4 +83,4 @@ userSchema.pre(/^find/, function () {
   this.where({ active: true });
 });
 
-export const User = model("User", userSchema);
+export const User = models.User || model("User", userSchema);

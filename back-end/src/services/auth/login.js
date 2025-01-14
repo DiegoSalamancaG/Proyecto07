@@ -1,23 +1,31 @@
-import jwt from "jsonwebtoken";
 import dotenv from 'dotenv';
-
-import { User } from "../../models/user.js";
+import jwt from 'jsonwebtoken';
 import { AuthError } from "../../errors/TypeErrors.js";
 import { comparePassword } from "../../utils/auth/comparePassword.js";
+import { User } from '../../models/user.js'
 
-dotenv.config()
+dotenv.config();
 
-export const loginService = async(correo, password) => {
+export const loginService = async (email, password) => {
     try {
-        const user = await User.findOne({ correo });
-        const passwordMatch = await comparePassword(password, user.password);
+        // Buscar usuario por correo electrónico
+        const user = await User.findOne({ email });
 
-        if(!passwordMatch, !user) throw new AuthError(`Credencial inválida`);
+        // Comparar contraseña
+        const passwordMatch = user ? await comparePassword(password, user.password) : false;
 
-        const token = jwt.sign({ uid: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-        
+        // Validar credenciales
+        if (!user || !passwordMatch) {
+            throw new AuthError(`Credencial inválida`);
+        }
+
+        // Generar token JWT
+        const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' , algorithm: 'HS256'});
+        console.log('Token generado:', token);
+
         return { user, token };
     } catch (error) {
-        throw new AuthError(`Login no autorizado`, error)
+        console.error('Error en loginService:', error);
+        throw new AuthError(`Login no autorizado`, error);
     }
-}
+};

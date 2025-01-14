@@ -1,5 +1,11 @@
 import { connectDB } from "../config/db.js";
 import { InternalServerError } from "../errors/TypeErrors.js";
+import { hashPassword } from "../utils/auth/hashPassword.js";
+
+const pw = "Asdf1414";
+const securePW = await hashPassword(pw)
+console.log("securePW:")
+console.log(securePW);
 
 export const serverInit = async(app, port) => {
     try {
@@ -12,6 +18,7 @@ export const serverInit = async(app, port) => {
             console.log(`http://localhost:${port}/api/products`)
             console.log(`http://localhost:${port}/api/categories`)
             console.log(`http://localhost:${port}/api/collections`)
+            console.log(`http://localhost:${port}/api/auth`)
         });
     } catch (error) {
         throw new InternalServerError(`Error al inicializar el Servidor en el puerto ${port}`, error);

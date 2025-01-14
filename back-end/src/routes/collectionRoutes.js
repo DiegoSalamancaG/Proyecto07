@@ -12,7 +12,7 @@ const router = Router();
 
 router.post('/', verifyAdmin, createCollection);
 router.get('/', getAllCollections);
-router.get('/:name', verifyAdmin, getCollectionByName)
+router.get('/:name', getCollectionByName)
 router.put('/:id', verifyAdmin, updateCollection);
 router.delete('/:id', verifyAdmin, deleteCollection);
 
