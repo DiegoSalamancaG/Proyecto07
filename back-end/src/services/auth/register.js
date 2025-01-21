@@ -2,9 +2,9 @@ import { AuthError } from "../../errors/TypeErrors.js";
 import { User } from "../../models/user.js";
 import { hashPassword } from "../../utils/auth/hashPassword.js";
 
-export const registerUser = async(req, res, next) => {
+export const registerUser = async(userData) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password, role } = userData;
 
         // Validar datos
         if (!name || !email || !password) {
@@ -38,11 +38,15 @@ export const registerUser = async(req, res, next) => {
         await newUser.save();
 
         // Retornar el usuario creado sin la contraseña
-        res.status(201).json({
-            message: "Usuario creado exitosamente",
-            status: 201,
-            data: { id: newUser._id, name: newUser.name, email: newUser.email, role: newUser.role },
-        });
+        // res.status(201).json({
+        //     message: "Usuario creado exitosamente",
+        //     status: 201,
+        //     data: { id: newUser._id, name: newUser.name, email: newUser.email, role: newUser.role },
+        // });
+        
+        // Devolver el usuario creado
+        return newUser;
+
     } catch (error) {
         throw new AuthError("Error al crear nuevo usuario", error);
     }

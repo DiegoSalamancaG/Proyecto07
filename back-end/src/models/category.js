@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
+//Schema categoria es para darle una categoria a los productos, ya sea, poleras, polerones, etc
 const categoryProductSchema = new Schema({
     name: {
         type: String,

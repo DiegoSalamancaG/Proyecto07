@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
+//Schema collection tiene como finalidad proveer una colecion a los productos, ya sea, temporadaVerano, invierno, o de alguna tematica que se desee agregar
 const CollectionProductSchema = new Schema({
     name:{
         type: String,

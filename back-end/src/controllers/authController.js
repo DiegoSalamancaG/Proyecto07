@@ -1,12 +1,10 @@
 import { loginService } from "../services/auth/login.js";
 import { registerUser } from "../services/auth/register.js"
-import { formatUserData } from "../utils/format/formatUser.js";
+// import { formatUserData } from "../utils/format/formatUser.js";
 
 export const register = async(req, res, next) => {
     try {
-        console.log(req.body)
-        const userData = formatUserData(req.body)
-
+        const userData = req.body;
         const user = await registerUser(userData);
         res.status(201).json({
             message: "Usuario Creado con éxito",
@@ -18,7 +16,7 @@ export const register = async(req, res, next) => {
             },
         });
     } catch (error) {
-        console.error('Error Interno en register', error)
+        console.error('Error Interno en registro', error)
         next(error);
     }
 }

@@ -20,8 +20,9 @@ export const loginService = async (email, password) => {
         }
 
         // Generar token JWT
-        const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' , algorithm: 'HS256'});
+        const token = jwt.sign({ userId: user._id, role:user.role }, process.env.SECRET_KEY, { expiresIn: '1h' , algorithm: 'HS256'});
         console.log('Token generado:', token);
+        console.log('Rol generado:', user.role);
 
         return { user, token };
     } catch (error) {

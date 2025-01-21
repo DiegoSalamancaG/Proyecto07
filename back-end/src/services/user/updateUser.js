@@ -17,7 +17,7 @@ export const updateUserService = async(id, updateData) => {
           }
         });
 
-        const user = await User.findOneAndUpdate({ _id: id, activo: true }, dataToUpdate, { new: true }).select('-password -activo');
+        const user = await User.findOneAndUpdate({ _id: id, active: true }, dataToUpdate, { new: true }).select('-password -active');
         return user;
     } catch (error) {
         throw new InternalServerError('Error al procesar el servicio de actualización de usuario', error)

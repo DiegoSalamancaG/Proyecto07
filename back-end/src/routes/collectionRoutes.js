@@ -7,13 +7,14 @@ import {
     deleteCollection
 } from '../controllers/collectionController.js'
 import { verifyAdmin } from '../middlewares/verifyAdmin.js'
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
-router.post('/', verifyAdmin, createCollection);
+router.post('/', authMiddleware, verifyAdmin, createCollection);
 router.get('/', getAllCollections);
 router.get('/:name', getCollectionByName)
-router.put('/:id', verifyAdmin, updateCollection);
-router.delete('/:id', verifyAdmin, deleteCollection);
+router.put('/:id', authMiddleware, verifyAdmin, updateCollection);
+router.delete('/:id', authMiddleware, verifyAdmin, deleteCollection);
 
 export default router;
