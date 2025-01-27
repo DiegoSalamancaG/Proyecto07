@@ -4,7 +4,7 @@ import { updateUserImageService, updateUserService } from "../services/user/upda
 
 export const getAllUsers = async(req, res, next) => {
     try {
-        const users = await User.find().select('-password -activo');
+        const users = await User.find().select('-password');
 
         res.status(200).json({
             message: 'Usuarios encontrados con éxito',
@@ -20,7 +20,7 @@ export const getUserById = async(req, res, next) => {
     try {
         const { id } = req.params;
 
-        const user = await User.findOne({ _id: id}).select('-password -activo');
+        const user = await User.findOne({ _id: id, active:true}).select('-password');
         if(!user) throw new NotFoundError('El usuario no existe');
 
         res.status(200).json({
@@ -37,7 +37,6 @@ export const updateUser = async(req, res, next) => {
     try {
         const { id } = req.params;
         const userData = req.body;
-
         const user = await updateUserService(id, userData);
 
         if(!user) throw new NotFoundError(`Usuario no encontrado`);
@@ -96,7 +95,7 @@ export const deleteUser = async (req, res, next) => {
 export const restoreUser = async(req, res, next) => {
     try {
         const { id } = req.params;
-        const user = await User.findOneAndUpdate({ _id: id, active: false }, { new: true }).select('-password -activo');
+        const user = await User.findOneAndUpdate({ _id: id, active: false }, {active: true},{ new: true }).select('-password -activo');
 
         if(!user) throw new NotFoundError(`Usuario no encontrado`);
 

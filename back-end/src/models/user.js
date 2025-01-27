@@ -79,8 +79,8 @@ userSchema.set('toJSON', {
 });
 
 // Hook para filtrar usuarios inactivos en consultas
-userSchema.pre(/^find/, function () {
-  this.where({ active: true });
-});
+// userSchema.pre(/^find/, function () {
+//   this.where({ active: true });
+// });
 
 export const User = models.User || model("User", userSchema);

@@ -38,7 +38,7 @@ export const getAllCollections = async(req,res,next)=>{
 export const getCollectionByName = async(req,res,next) => {
     try {
         const { name } = req.params;
-        const collectionsProduct = await CollectionProduct.findById(name).select('-__v')
+        const collectionsProduct = await CollectionProduct.findById({name}).select('-__v')
         
         res.status(200).json({
             message: 'Coleción obtenida con éxito',
