@@ -20,8 +20,9 @@ Este proyecto está en constante mejora. Se están añadiendo funcionalidades co
 - [React Router](https://reactrouter.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Postman](https://www.postman.com/)
-- CSS
-- [Axios](https://axios-http.com/)
+- [Node.js](https://nodejs.org/es)
+- [Express](https://expressjs.com/)
+- [JWT Tokens](https://jwt.io/)
 
 ## 🛠 Instalación
 
