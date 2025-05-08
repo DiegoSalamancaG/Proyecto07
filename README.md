@@ -48,6 +48,30 @@ Abre tu navegador en: `http://localhost:5173`
 
 Puedes desplegar esta aplicación fácilmente en plataformas como [Vercel](https://vercel.com/).
 
+### Instalación del Backend
+
+```bash
+cd back-end
+npm install
+```
+Configura tus variables de entorno en un archivo `.env`. Asegúrate de incluir datos como la URI de conexión a MongoDB y claves necesarias.
+
+Ejemplo básico de `.env`:
+
+```
+PORT=5000
+MONGODB_URL=mongodb+srv://usuario:contraseña@cluster.mongodb.net/nombreDB
+SECRET_KEY=tu_clave_secreta
+```
+
+Luego ejecuta el servidor:
+
+```bash
+npm run dev
+```
+
+El backend estará corriendo por defecto en: `http://localhost:5000`
+
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo la MIT License.
