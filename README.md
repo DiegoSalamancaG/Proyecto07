@@ -23,6 +23,8 @@ cd Proyecto07
 
 Instala las dependencias:
 
+El Proyecto cuenta con el desarrolo Front-end y un Back-end, estos se encuentran totalmente funcionales y en sus respectivas carpetas dentro del proyecto, si deseas puedes revisar ambas y hacerlas correr, no obstante, la aplicacion se encuentra funcionando de manera provisoria con una API, FakestoreAPI.
+
 ```bash
 cd front-end
 npm install
