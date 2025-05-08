@@ -44,10 +44,6 @@ npm run dev
 
 Abre tu navegador en: `http://localhost:5173`
 
-## 🌐 Despliegue
-
-Puedes desplegar esta aplicación fácilmente en plataformas como [Vercel](https://vercel.com/).
-
 ### Instalación del Backend
 
 ```bash
@@ -71,6 +67,10 @@ npm run dev
 ```
 
 El backend estará corriendo por defecto en: `http://localhost:5000`
+
+## 🌐 Despliegue
+
+Puedes desplegar esta aplicación fácilmente en plataformas como [Vercel](https://vercel.com/).
 
 ## 📄 Licencia
 
