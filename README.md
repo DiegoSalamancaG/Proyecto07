@@ -2,12 +2,13 @@
 
 Una aplicación web desarrollada con [React](https://reactjs.org/) y [Vite](https://vitejs.dev/). Este proyecto sirve como base para construir interfaces modernas, rápidas y modulares utilizando las últimas herramientas del ecosistema JavaScript.
 
-Este proyecto esta recibiendo mejoras periodicas, tales como inicios de sesion, carritos de compra, etc. Actualizando sus componentes y dandole un mejor enfoque al rendimiento.
+
+## Este proyecto esta recibiendo mejoras periodicas, tales como inicios de sesion, carritos de compra, etc. Actualizando sus componentes y dandole un mejor enfoque al rendimiento.
 Futuras actualizaciones:
--Menu Admin
--Filtros para busqueda
--Pasarelas de Pago
--Inicio de sesion con perfiles para clientes/admin
+- Menu Admin
+- Filtros para busqueda
+- Pasarelas de Pago
+- Inicio de sesion con perfiles para clientes/admin
 
 ## 🚀 Tecnologías usadas
 
